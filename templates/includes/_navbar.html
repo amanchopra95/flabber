@@ -1,0 +1,52 @@
+<nav class="navbar navbar-inverse fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="">Blog</a>
+		</div>
+		<ul class="nav navbar-nav navbar-right nav-pills">
+			<li class="active">
+				<a href="/">
+          <span class="glyphicon glyphicon-home">Home</span>
+          <span class="sr-only">(current)</span>
+        </a>
+			</li>
+			{% if session.logged_in %}
+				<li>
+          <a href="{{url_for('articles')}}">
+            <span class="glyphicon glyphicon-text-background">Articles</span>
+          </a>
+        </li>
+				<li>
+          <a href="{{url_for('dashboard')}}">
+            <span class="glyphicon glyphicon-dashboard">Dashboard</span>
+          </a>
+        </li>
+				<li>
+          <a href="{{url_for('logout')}}">
+            <span class="glyphicon glyphicon-log-out">Logout</span>
+          </a>
+        </li>
+			{% else %}
+				<li>
+          <a href="{{url_for('login')}}">
+            <span class="glyphicon glyphicon-log-in">Login</span>
+          </a>
+        </li>
+				<li>
+          <a href="{{url_for('signup')}}">
+            <span class="glyphicon glyphicon-user">Signup</span>
+          </a>
+        </li>
+      {% endif %}
+		
+		</ul>
+		<form class="navbar-form text-center" action="/search/" method='GET' role="search">
+  			<div class="input-group">
+    			<input type="text" class="form-control" placeholder="Search" value="search" name="search">
+    			<div class="input-group-btn">
+      				<input class="btn btn-default" type="submit">
+    			</div>
+  			</div>
+		</form>
+	</div>
+</nav>

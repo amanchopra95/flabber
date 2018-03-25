@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+	{% block body %}
+		<div class="container">
+			<div class="col-md-8">
+				<h1>Search Results</h1>
+				<a href="/articles/{{ articles.title }}/"><h2>{{ articles.title }}</h2></a>
+				<small>By {{ articles.author }} on {{ articles.timestamp }}</small>
+				<p>{{ articles.body | safe }}</p>
+				<hr>
+			</div>
+		</div>
+	{% endblock %}

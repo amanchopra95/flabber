@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<div></div>
+	<div class=" jumbotron text-center">
+		<h1>Welcome to Blog</h1>
+		{% if session.logged_in %}
+			<a href="{{ url_for('add_article') }}" class="btn btn-success">Add Article</a>
+		{% else %}
+			<p>You can login in to your profile <a href="{{url_for('login')}}">here</a></p>
+		{% endif %}
+	</div>
+{% endblock %}
